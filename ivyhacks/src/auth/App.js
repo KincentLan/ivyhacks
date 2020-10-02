@@ -1,10 +1,9 @@
 import React from "react";
-import "./App.css";
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
-import Home from "./Home";
+import Home from "../Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import Welcome from "./Welcome";
+import Welcome from "../Welcome";
 import {AuthProvider} from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 

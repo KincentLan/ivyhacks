@@ -1,0 +1,22 @@
+#welcome {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('Background.png');
+    margin: 0;
+}
+
+label {
+    font-family: Mulish, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 18px;
+
+    /* or 45% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.3px;
+
+    color: #FFFFFF;
+}
