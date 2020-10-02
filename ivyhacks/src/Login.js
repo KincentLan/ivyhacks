@@ -43,3 +43,5 @@ const Login = ({ history }) => {
         </div>
     )
 }
+
+export default withRouter(login);
