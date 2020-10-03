@@ -3,20 +3,66 @@
     height: 100vh;
     background-image: url('Background.png');
     margin: 0;
+    padding: 0;
 }
 
-label {
+a {
+    text-decoration: none;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.textbox {
+    padding: 0;
+    width: 16%;
+    float: right;
+    margin-right: 8vw;
+    margin-top: 8vh;
+    text-align: center;
+}
+
+.wellink {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+
     font-family: Mulish, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 40px;
-    line-height: 18px;
+    font-size: 1.5vw;
+    line-height: 2vh;
+    width: 50%;
+    padding: 5%;
 
-    /* or 45% */
-    display: flex;
-    align-items: center;
-    text-align: center;
     letter-spacing: 0.3px;
+}
 
-    color: #FFFFFF;
+#signupButton {
+    background: #3C64B1;
+}
+
+#description {
+    position: absolute;
+    width: 936px;
+    height: 346px;
+    left: 938px;
+    top: 315px;
+
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 85px;
+    line-height: 120px;
+
+    /* or 100% */
+    letter-spacing: 0.2px;
+
+    color: #3C64B1;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

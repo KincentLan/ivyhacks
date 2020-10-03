@@ -1,0 +1,79 @@
+.formBox {
+    height: 50%;
+    width: 33%;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20vh;
+    margin-left: 33%;
+}
+
+.formBox h1 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5vw;
+    line-height: 2vh;
+
+    /* identical to box height, or 22% */
+    text-align: center;
+    letter-spacing: 0.3px;
+
+    color: #3C64B1;
+}
+
+.formBox h5 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-size: 1vw;
+    font-weight: normal;
+}
+
+.formBox .inputBox {
+    margin-top: 6vh;
+    text-align: left;
+}
+
+.formBox .inputBox label {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 2vh;
+    margin-left: 0.5vw;
+
+    /* identical to box height, or 45% */
+    letter-spacing: 0.3px;
+}
+
+.formBox .inputBox input {
+    width: 100%;
+    padding: 2%;
+
+    background: #E5E5E5;
+}
+
+.formBox .inputBox .inputField {
+    margin-bottom: 5%;
+}
+
+.formBox button {
+    float: none;
+    display: block;
+    margin: auto;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1vw;
+    line-height: 2vh;
+    padding: 2%;
+    background: #3C64B1;
+    width: 25%;
+    height: 5vh;
+    border-radius: 0.30vw;
+
+    text-align: center;
+    letter-spacing: 0.3px;
+
+    color: #FFFFFF;
+}

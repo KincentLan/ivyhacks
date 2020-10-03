@@ -28,20 +28,27 @@ const Login = ({history}) => {
     }
 
     return (
-        <div class="formBox">
-            <h1>Log in</h1>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Email
-                    <input name="email" type="email" placeholder="Email"/>
-                </label>
-                <label>
-                    Password
-                    <input name="password" type="password" placeholder="Password"/>
-                </label>
-                <button type="submit">Log in</button>
-                <h5>Don't have an account? <Link to to="/signup">Sign up.</Link></h5>
-            </form>
+        <div id="loginPage">
+            <div className="navbar">
+                <button id="homeButton"><Link className="white" to="/">Home</Link></button>
+            </div>
+            <div class="formBox">
+                <h1>Log in</h1>
+                <div class="inputBox">
+                    <form onSubmit={handleLogin}>
+                        <div className="inputField">
+                            <label>Username</label>
+                            <input name="email" type="email" placeholder="Email"/>
+                        </div>
+                        <div className="inputField">
+                            <label>Password</label>
+                            <input name="password" type="password" placeholder="Password"/>
+                        </div>
+                        <button type="submit">Log in</button>
+                        <h5>Don't have an account? <Link to to="/signup">Sign up.</Link></h5>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./css/welcome.css";
+import {Link} from "react-router-dom";
 
 const Welcome = () => {
-  return (
-      <div id="welcome">
-          <Link to="/login"><label>Log in</label></Link>
-          <Link to="/signup"><label>Sign up</label></Link>
-      </div>
-  )
+    return (
+        <div id="welcome">
+            <div className="textbox">
+                <button id="loginButton" className="wellink"><Link className="white" to="/login">Log in</Link></button>
+                <button id="signupButton" className="wellink"><Link className="white" to="/signup">Sign up</Link></button>
+            </div>
+            <div id="description">We help connect you with your peers</div>
+        </div>
+    )
 };
 
 export default Welcome;
