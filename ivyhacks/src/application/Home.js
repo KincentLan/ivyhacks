@@ -1,19 +1,17 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import app from "../base";
-import {AuthContext} from "../auth/Auth.js";
+import 'firebase/auth';
+import firebase from 'firebase/app';
 import {Link} from "react-router-dom";
-import createClass from '../CreateClass.js'
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 const Home = () => {
+    const auth = firebase.auth();
     const [courses, setCourses] = useState(null);
-    const [name, setName] = useState(null);
-    const [role, setRole] = useState(null);
-    const {currentUser} = useContext(AuthContext);
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
-        app.database().ref('users/' + currentUser.uid).once('value').then(function (snapshot) {
-            const getName = snapshot.val()['firstname'];
-            const getRole = snapshot.val()['userType']
+        app.database().ref('users/' + user.uid).once('value').then(function (snapshot) {
             const getCourses = snapshot.val()['classes'];
             if (getCourses !== undefined && getCourses.length > 0) {
                 setCourses(getCourses);
@@ -21,20 +19,15 @@ const Home = () => {
             else {
                 setCourses([]);
             }
-            setName(getName)
-            setRole(getRole)
             return;
         });
     }, []);
-
 
     return (
         <div className="dashboard">
             {courses && (
                 <div className="courses">
                     <h1>Home</h1>
-                    <p>Name: { name }</p>
-                    {role === 'instructor' && createClass()}
                     {courses.length === 0 && (
                         <div className="message">No classes</div>
                     )}
