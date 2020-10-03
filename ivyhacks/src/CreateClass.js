@@ -7,9 +7,12 @@ const createClass = () => {
     const addClassToDatabase = (async event => {
       event.preventDefault();
       const {className} = event.target.elements;
+      const {sectionID} = event.target.elements;
+      const {professorName} = event.target.elements;
       console.log(className.value);
       app.database().ref('classes/' + className.value).set({
-        name : "anime tiddy class"
+        sectionID : sectionID.value,
+        professorName : professorName.value
       })
   });
 
@@ -20,6 +23,14 @@ const createClass = () => {
         <label>
           Class Name
           <input name="className" placeholder="PHYS 2020" />
+        </label>
+        <label>
+          Section ID
+          <input name="sectionID" placeholder="10480" />
+        </label>
+        <label>
+          Professor
+          <input name="professorName" placeholder="Mary Jane" />
         </label>
         <button type='submit'>Create Class</button>
       </form>
