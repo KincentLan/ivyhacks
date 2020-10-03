@@ -1,38 +1,32 @@
 import React, {useContext, useEffect, useState} from "react";
-import * as firebase from "firebase/app";
 import app from "../base";
 import {AuthContext} from "../auth/Auth.js";
+import {Link} from "react-router-dom";
 
 const Home = () => {
-    const [courses, setCourses] = useState([]);
-    const [role, setRole] = useState([]);
+    const [courses, setCourses] = useState(null);
     const {currentUser} = useContext(AuthContext);
 
-    useEffect(() => {
-        app.database().ref('users/' + currentUser.uid).once('value').then(
-          function (snapshot) {
-            const courses = snapshot.val()['classes'];
-            if (courses.length > 0) {
-                setCourses(courses);
-            }
-        })
-    }, []);
-
-    useEffect(() => {
-      app.database().ref('users/' + currentUser.uid).once('value').then(
-        function (snapshot) {
-          setRole(snapshot.val()['userType']);
-      })
-  }, []);
+    app.database().ref('users/' + currentUser.uid).once('value').then(function (snapshot) {
+        const courses = snapshot.val()['classes'];
+        if (courses !== undefined && courses.length > 0) {
+            setCourses(courses);
+        }
+        else {
+            setCourses([]);
+        }
+    })
 
     return (
         <div className="dashboard">
-            {courses.length > 0 && (
+            {courses && (
                 <div className="courses">
                     <h1>Home</h1>
-                    <div className='role'>{ role }</div>
-                    {courses.map((value, i) => {
-                        return <div className="class">{value}</div>
+                    {courses.length === 0 && (
+                        <div className="message">No classes</div>
+                    )}
+                    {courses.length > 0 && courses.map((value) => {
+                        return <Link to={"/chat/" + value}> {value} </Link>
                     })}
                     <button onClick={() => app.auth().signOut()}>Sign out</button>
                 </div>)}
