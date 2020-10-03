@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const createClass = () => {
     const addClassToDatabase = (className) => {
+      window.alert(className);
         const newClassRef = app.database().ref('classes/' + className).set( {className : className} );
-        console.log(newClassRef);
     };
 
     return (
@@ -17,7 +17,7 @@ const createClass = () => {
           Class Name
           <input name="class_name" placeholder="PHYS 2020" />
         </label>
-        <button onClick='addClassToDatabase()'>Create Class</button>
+        <button onClick={addClassToDatabase}>Create Class</button>
       </form>
     </div>
       );
