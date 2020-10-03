@@ -8,9 +8,7 @@ const SignUp = ({history}) => {
         event.preventDefault();
         const {email, password, confirm_password } = event.target.elements;
         try {
-            if (password.value != confirm_password.value) {
-                console.log(password);
-                console.log(confirm_password);
+            if (password.value !== confirm_password.value) {
                 throw new Error("Passwords do not match.");
             }
             await app
