@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import Home from "../Home";
+import Home from "../application/Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import Test from "../Test";
@@ -13,7 +13,7 @@ const App = () => {
     return (
         <AuthProvider>
             <Router>
-                <div>
+                <div className="bodyDiv">
                     <PrivateRoute exact path="/home" component={Home}/>
                     <Route exact path="/" component={Welcome}/>
                     <Route exact path="/test" component={Test}/>

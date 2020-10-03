@@ -1,7 +1,15 @@
+.bodyDiv {
+    min-height: 100vh;
+}
+
 #welcome {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     background-image: url('BackgroundNo2.JPG');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 a {
