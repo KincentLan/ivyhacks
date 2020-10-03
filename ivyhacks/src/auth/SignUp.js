@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {withRouter} from "react-router";
-import app from "./base";
+import app from "../base";
 import {Link} from "react-router-dom";
 
 const SignUp = ({history}) => {

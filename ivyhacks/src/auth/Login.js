@@ -1,6 +1,6 @@
 import React, {useCallback, useContext} from "react";
 import {withRouter, Redirect} from "react-router";
-import app from "./base.js";
+import app from "../base.js";
 import {AuthContext} from "./Auth.js";
 import {Link} from "react-router-dom";
 
