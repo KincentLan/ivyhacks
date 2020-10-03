@@ -77,3 +77,8 @@
 
     color: #FFFFFF;
 }
+
+.error {
+    font-family: Montserrat;
+    color: #ff0033;
+}

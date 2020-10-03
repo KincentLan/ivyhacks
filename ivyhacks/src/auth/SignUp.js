@@ -1,24 +1,42 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import {withRouter} from "react-router";
+import * as firebase from "firebase";
 import app from "../base";
 import {Link} from "react-router-dom";
+import {AuthContext} from "./Auth.js";
 
 const SignUp = ({history}) => {
+    const [error, setError] = useState("");
+
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
-        const {email, password, confirm_password } = event.target.elements;
+        const {firstname, lastname, email, password, confirm_password } = event.target.elements;
         try {
             if (password.value !== confirm_password.value) {
                 throw new Error("Passwords do not match.");
             }
-            await app
+            const userAuth = await app
                 .auth()
                 .createUserWithEmailAndPassword(email.value, password.value);
-            history.push("/home");
+            const user = {
+                uid: userAuth.user.uid,
+                email: userAuth.user.email,
+                firstname: firstname.value,
+                lastname: lastname.value,
+                userType: 'student',
+                'classes': ['CS3500']
+            }
+            pushUserData(user);
+          history.push("/home");
         } catch (error) {
-            alert(error);
+            setError(error.toString());
         }
     }, [history]);
+
+    function pushUserData(user) {
+        app.database().ref('users/' + user.uid).set(user).catch(error =>
+            console.log(error.message));
+    }
 
     return (
         <div id="loginPage">
@@ -27,8 +45,19 @@ const SignUp = ({history}) => {
             </div>
             <div className="formBox">
                 <h1>Sign up</h1>
+                {error && (
+                    <div className="error">{error}</div>
+                )}
                 <div className="inputBox">
                     <form onSubmit={handleSignUp}>
+                        <div className="inputField">
+                            <label>First Name</label>
+                            <input name="firstname" placeholder="First Name"/>
+                        </div>
+                        <div className="inputField">
+                            <label>Last Name</label>
+                            <input name="lastname" placeholder="Last Name"/>
+                        </div>
                         <div className="inputField">
                             <label>Username</label>
                             <input name="email" type="email" placeholder="Email"/>

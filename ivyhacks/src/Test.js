@@ -3,9 +3,11 @@ import * as firebase from "firebase";
 import app from "./base";
 
 const Test = () => {
-    app.database().ref('classes/testClass').set({
-        instructor: "p"
+    const instructor = app.database().ref('classes/testClass/instructor');
+    instructor.on('value', function (snapshot) {
+        console.log(snapshot.val())
     });
+
 
     return (
         <div>
