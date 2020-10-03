@@ -1,43 +1,39 @@
 import React, {useEffect, useState} from "react";
 import app from "../base";
-import 'firebase/auth';
 import firebase from 'firebase/app';
-import {Link} from "react-router-dom";
+import 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
 
 const Home = () => {
     const auth = firebase.auth();
-    const [courses, setCourses] = useState(null);
     const [user] = useAuthState(auth);
+    const [courses, setCourses] = useState(null);
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        app.database().ref('users/' + user.uid).once('value').then(function (snapshot) {
-            const getCourses = snapshot.val()['classes'];
-            if (getCourses !== undefined && getCourses.length > 0) {
-                setCourses(getCourses);
-            }
-            else {
-                setCourses([]);
-            }
-            return;
-        });
-    }, []);
+        if (!loaded) {
+            app.database().ref('users/' + user.uid).once('value').then((snapshot) => {
+                if (snapshot.val()['classes'] !== undefined) {
+                    setCourses(snapshot.val()['classes']);
+                }
+                else {
+                    setCourses([]);
+                }
+                setLoaded(true);
+            });
+        }
+    });
 
     return (
-        <div className="dashboard">
+        <div>
             {courses && (
-                <div className="courses">
-                    <h1>Home</h1>
-                    {courses.length === 0 && (
-                        <div className="message">No classes</div>
-                    )}
-                    {courses.length > 0 && courses.map((value) => {
-                        return <Link to={"/chat/" + value}> {value} </Link>
-                    })}
-                    <button onClick={() => app.auth().signOut()}>Sign out</button>
-                </div>)}
+                courses.map((value) => {
+                    return <div> {value} </div>;
+                })
+            )}
+            <button onClick={() => app.auth().signOut()}>Sign out</button>
         </div>
-    );
-};
+    )
+}
 
 export default Home;
