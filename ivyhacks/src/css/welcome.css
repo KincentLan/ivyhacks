@@ -1,9 +1,7 @@
 #welcome {
-    width: 100vw;
     height: 100vh;
-    background-image: url('Background.png');
-    margin: 0;
-    padding: 0;
+    width: 100vw;
+    background-image: url('BackgroundNo2.JPG');
 }
 
 a {
@@ -44,24 +42,4 @@ a {
 
 #signupButton {
     background: #3C64B1;
-}
-
-#description {
-    position: absolute;
-    width: 45vw;
-    margin-left: 50vw;
-    margin-top: 35vh;
-
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 4vw;
-    line-height: 10vh;
-
-    /* or 100% */
-    letter-spacing: 0.2px;
-
-    color: #3C64B1;
-
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
