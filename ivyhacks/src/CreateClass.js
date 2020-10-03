@@ -1,6 +1,5 @@
 import React from "react";
 import app from "./base";
-<<<<<<< HEAD
 import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
@@ -18,21 +17,6 @@ const createClass = () => {
       return <Redirect to="/home"/>;
     }
   });
-=======
-import {useState} from "react";
-import {Link} from "react-router-dom";
-
-const createClass = () => {
-    const addClassToDatabase = (async event => {
-        event.preventDefault();
-        const {className, sectionID, professorName} = event.target.elements;
-        await app.database().ref('classes/' + className.value).set({
-            className: className.value,
-            sectionID: sectionID.value,
-            professorName: professorName.value
-        })
-    });
->>>>>>> a6563495ea7b23e7a2582bf444b5dbc71892ec71
 
     const addClassToDatabase = (async event => {
         event.preventDefault();
