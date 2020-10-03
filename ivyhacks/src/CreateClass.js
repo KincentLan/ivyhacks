@@ -4,20 +4,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const createClass = () => {
-    const addClassToDatabase = (className) => {
-      window.alert(className);
-        const newClassRef = app.database().ref('classes/' + className).set( {className : className} );
-    };
+    const addClassToDatabase = (async event => {
+      event.preventDefault();
+      const {className} = event.target.elements;
+      console.log(className.value);
+      app.database().ref('classes/' + className.value).set({
+        name : "anime tiddy class"
+      })
+  });
 
     return (
     <div>
       <h1>Create a new class</h1>
-      <form>
+      <form onSubmit={addClassToDatabase}>
         <label>
           Class Name
-          <input name="class_name" placeholder="PHYS 2020" />
+          <input name="className" placeholder="PHYS 2020" />
         </label>
-        <button onClick={addClassToDatabase}>Create Class</button>
+        <button type='submit'>Create Class</button>
       </form>
     </div>
       );
