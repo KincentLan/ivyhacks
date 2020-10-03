@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import Test from "../Test";
 import Welcome from "../Welcome";
 import CreateClass from "../CreateClass"
+import CreateAssignment from "../CreateAssignment"
 import {AuthProvider} from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 
@@ -20,6 +21,7 @@ const App = () => {
                     <Route exact path="/signup" component={SignUp}/>
                     <Route exact path="/login" component={Login}/>
                     <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
+                    <Route exact path="/createAssignment" component={CreateAssignment}/>
                 </div>
             </Router>
         </AuthProvider>
