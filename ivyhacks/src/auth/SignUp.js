@@ -3,7 +3,6 @@ import {withRouter} from "react-router";
 import * as firebase from "firebase";
 import app from "../base";
 import {Link} from "react-router-dom";
-import {AuthContext} from "./Auth.js";
 
 const SignUp = ({history}) => {
     const [error, setError] = useState("");
@@ -24,7 +23,6 @@ const SignUp = ({history}) => {
                 firstname: firstname.value,
                 lastname: lastname.value,
                 userType: 'student',
-                'classes': ['CS3500']
             }
             pushUserData(user);
           history.push("/home");
@@ -71,7 +69,7 @@ const SignUp = ({history}) => {
                             <input name="confirm_password" type="password" placeholder="Confirm Password"/>
                         </div>
                         <button type="submit">Sign up</button>
-                        <h5>Have an account? <Link to to="/login">Log in.</Link></h5>
+                        <h5>Have an account? <Link to="/login">Log in.</Link></h5>
                     </form>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const createClass = () => {
     const addClassToDatabase = (className) => {
-        var newClassRef = app.database().ref('classes/' + className).set( {className : className} );
+        const newClassRef = app.database().ref('classes/' + className).set( {className : className} );
         console.log(newClassRef);
     };
 
