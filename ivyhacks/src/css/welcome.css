@@ -1,6 +1,6 @@
 #welcome {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url('Background.png');
     margin: 0;
     padding: 0;
@@ -48,16 +48,15 @@ a {
 
 #description {
     position: absolute;
-    width: 936px;
-    height: 346px;
-    left: 938px;
-    top: 315px;
+    width: 45vw;
+    margin-left: 50vw;
+    margin-top: 35vh;
 
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 85px;
-    line-height: 120px;
+    font-size: 4vw;
+    line-height: 10vh;
 
     /* or 100% */
     letter-spacing: 0.2px;
