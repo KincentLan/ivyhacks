@@ -19,14 +19,13 @@ const ChatDashboard = () => {
         })
     });
 
-    useEffect(() => {
-        app.database().ref('classes/' + id).once('value').then(function (snapshot) {
-            setCourseExists(snapshot.exists());
-        })
-    }, []);
+    app.database().ref('classes/' + id).once('value').then(function (snapshot) {
+        setCourseExists(snapshot.exists());
+    });
 
-    if (currentUser.courses === undefined || !currentUser.courses.includes(course)) {
-        return <Redirect to="/home"/>;
+    if (currentUser.courses === undefined || !currentUser.courses.includes(id)) {
+        console.log(currentUser.courses);
+        // return <Redirect to="/home"/>;
     }
 
     if (courseExists !== null && !courseExists) {
@@ -39,7 +38,7 @@ const ChatDashboard = () => {
                 <div>
                     {id}
                     <h1>Create a new class</h1>
-                    <form onSubmit={}>
+                    <form onSubmit={addQuestionChat}>
                         <label>
                             Assignment name:
                             <input name="className" placeholder="PHYS 2020"/>

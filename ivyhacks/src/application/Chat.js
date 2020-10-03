@@ -1,5 +1,5 @@
 import 'firebase/firestore';
-import {AuthContext} from "./Auth.js";
+import {AuthContext} from "../auth/Auth.js";
 import React, {useContext} from "react";
 import {Redirect} from "react-router";
 

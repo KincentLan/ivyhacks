@@ -7,17 +7,15 @@ const Home = () => {
     const [courses, setCourses] = useState(null);
     const {currentUser} = useContext(AuthContext);
 
-    useEffect(() => {
-        app.database().ref('users/' + currentUser.uid).once('value').then(function (snapshot) {
-            const courses = snapshot.val()['classes'];
-            if (courses !== undefined && courses.length > 0) {
-                setCourses(courses);
-            }
-            else {
-                setCourses([]);
-            }
-        })
-    }, []);
+    app.database().ref('users/' + currentUser.uid).once('value').then(function (snapshot) {
+        const courses = snapshot.val()['classes'];
+        if (courses !== undefined && courses.length > 0) {
+            setCourses(courses);
+        }
+        else {
+            setCourses([]);
+        }
+    })
 
     return (
         <div className="dashboard">
