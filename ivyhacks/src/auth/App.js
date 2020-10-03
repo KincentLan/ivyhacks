@@ -23,7 +23,7 @@ const App = () => {
                     <Route exact path="/test" component={Test}/>
                     <Route exact path="/signup" component={SignUp}/>
                     <Route exact path="/login" component={Login}/>
-                    <Route exact path="/CreateClass" component={CreateClass}/>
+                    <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
                 </div>
             </Router>
         </AuthProvider>
