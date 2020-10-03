@@ -5,7 +5,6 @@ import {AuthContext} from "../auth/Auth.js";
 
 const Home = () => {
     const [courses, setCourses] = useState([]);
-    const [loading, setLoading] = useState(true);
     const {currentUser} = useContext(AuthContext);
 
     useEffect(() => {
