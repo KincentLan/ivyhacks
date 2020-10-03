@@ -4,7 +4,7 @@ import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
 const createAssignment = () => {
-    /* if (AuthContext.currentUser === undefined) {
+    if (AuthContext.currentUser === undefined) {
       return <Redirect to="/home"/>;
     }
     const currentUser = AuthContext.currentUser.uid;
@@ -16,9 +16,11 @@ const createAssignment = () => {
       if (userJob !== "instructor") {
         return <Redirect to="/home"/>;
       }
-    }); */
+    }); 
 
-    const storageRef = app.storage().ref();
+    const storageRef = app.storage().ref(Number(new Date()).toString());
+
+
       const addAssignToDatabase = (async event => {
           event.preventDefault();
           const {className, assignName, dueDate, file} = event.target.elements;
@@ -47,7 +49,7 @@ const createAssignment = () => {
                   </label>
                   <label>
                       Choose File
-                      <input type="file" id="input"/>
+                      <input name="file" id="uploadPdf" type="file" accept=".pdf" />
                   </label>
                   <button type='submit'>Create Assignment</button>
               </form>
