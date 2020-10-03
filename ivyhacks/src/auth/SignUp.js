@@ -1,6 +1,5 @@
 import React, {useCallback, useContext, useState} from "react";
 import {withRouter} from "react-router";
-import * as firebase from "firebase";
 import app from "../base";
 import {Link} from "react-router-dom";
 

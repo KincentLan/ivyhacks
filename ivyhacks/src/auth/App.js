@@ -5,7 +5,9 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import Test from "../Test";
 import Welcome from "../Welcome";
-import CreateClass from "../CreateClass"
+import CreateClass from "../CreateClass";
+import ChatDashboard from "../application/ChatDashboard";
+import Chat from "../application/Chat";
 import {AuthProvider} from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 
@@ -15,6 +17,8 @@ const App = () => {
             <Router>
                 <div className="bodyDiv">
                     <PrivateRoute exact path="/home" component={Home}/>
+                    <PrivateRoute exact path="/chat/:id" component={ChatDashboard}/>
+                    <PrivateRoute exact path="/chat/:id/chatroom/:assignment/:question" component={ChatDashboard}/>
                     <Route exact path="/" component={Welcome}/>
                     <Route exact path="/test" component={Test}/>
                     <Route exact path="/signup" component={SignUp}/>
