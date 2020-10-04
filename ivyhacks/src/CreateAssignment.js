@@ -24,9 +24,8 @@ const createAssignment = () => {
     const addAssignToDatabase = (async event => {
         event.preventDefault();
         const {className, assignName, dueDate, file} = event.target.elements;
-        // storageRef.put(file);
         await app.database().ref('classes/' + className.value + "/assignments/" + assignName.value).set({
-            assignName: assignName.value,
+            assignName: className.value,
             dueDate: dueDate.value,
         })
     }); 
