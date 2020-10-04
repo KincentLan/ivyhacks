@@ -9,6 +9,10 @@ const RegisterClass = () => {
     const [currentUser] = useAuthState(auth);
 
     const ref = app.database().ref("users/" + currentUser.uid + "/classes/")
+    ref.once("value")
+    .then(function(snapshot) {
+        var count = snapshot.child().val();
+    })
     
 
     const addUserToClass = (async event => {
