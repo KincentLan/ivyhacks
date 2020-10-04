@@ -21,7 +21,7 @@ const App = () => {
         <div className="bodyDiv">
         <PrivateRoute exact path="/home" component={Home}/>
         <PrivateRoute exact path="/chat/:id" component={ChatDashboard}/>
-        <PrivateRoute exact path="/chat/:id/chatroom/:assignment/:question" component={ChatDashboard}/>
+        <PrivateRoute exact path="/chat/:id/:assignment/:question" component={Chat}/>
         <Route exact path="/" component={Welcome}/>
         <Route exact path="/test" component={Test}/>
         <Route exact path="/signup" component={SignUp}/>

@@ -31,19 +31,18 @@ const ChatDashboard = () => {
                 console.log('this ran');
                 if (snapshot.val() !== null) {
                     const dbAssignments = snapshot.val()['assignments'];
-                    for (const key in dbAssignments) {
-                        curAssignments.push({assignment: key, question: dbAssignments[key]['question']});
+                    if (dbAssignments !== undefined) {
+                        for (const key in dbAssignments) {
+                            curAssignments.push({assignment: key, question: dbAssignments[key]['question']});
+                        }
                     }
                 }
                 setAssignments(curAssignments);
+                setLoaded(true);
             });
             setLoaded(true);
         };
     }, []);
-
-
-
-    console.log(assignments);
 
     if (redirect) {
         return <Redirect to="/home"/>;
