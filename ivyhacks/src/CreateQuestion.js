@@ -27,6 +27,7 @@ const CreateQuestion = (props) => {
             }
         })
         console.log(assigns)
+        console.log(temp)
         // await app.database().ref('classes/' + course + "/assignments/" + assignName.value + '/question/').once('value').then((snapshot) => {
         //     setQuestions(snapshot.val());
         //     setLoaded(true);
@@ -34,9 +35,9 @@ const CreateQuestion = (props) => {
 
         // console.log(questions)
 
-        // await app.database().ref('classes/' + course).set({
-        //     assignments : {assigns},
-        // })
+        await app.database().ref('classes/' + course + '/assignments/' + assignName.value).set({
+            question : temp,
+        })
     }); 
 
     

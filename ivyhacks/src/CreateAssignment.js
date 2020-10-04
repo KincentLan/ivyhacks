@@ -14,6 +14,7 @@ const CreateAssignment = (props) => {
         await app.database().ref('classes/' + course + "/assignments/" + assignName.value).set({
             assignName: assignName.value,
             dueDate: dueDate.value,
+            question: ['general']
         })
     });
 

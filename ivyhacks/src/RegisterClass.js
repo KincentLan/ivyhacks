@@ -32,14 +32,14 @@ const RegisterClass = () => {
             return false;
         })
     })
-    
-    const [value, setValue] = React.useState(classes[0]);
 
+    
     const addUserToClass = (value) => {
-        usrClassRef.push().update({
-            value
-        })
+        usrClassRef.set(value)
+        console.log(value)
     }
+
+    const [value, setValue] = React.useState(classes[0]);
 
     return (
         <div>
