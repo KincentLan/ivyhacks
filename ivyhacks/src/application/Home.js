@@ -81,6 +81,9 @@ const Home = () => {
                         <button className="dropbtn"> {name} </button>
                         <div className="dropdown-content">
                             <a href="#">
+                                <button id="register" onClick={window.location.href='/registerclass'}>Register for courses</button>
+                            </a>
+                            <a href="#">
                                 <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
                             </a>
                         </div>
