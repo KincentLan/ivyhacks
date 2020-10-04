@@ -12,6 +12,7 @@ import ChatDashboard from "../application/ChatDashboard";
 import Chat from "../application/Chat";
 import {AuthProvider} from "./Auth";
 import PrivateRoute from "./PrivateRoute";
+import Course from "../application/Course";
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
         <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
         <Route exact path="/createAssignment" component={CreateAssignment}/>
         <Route exact path="/registerclass" component={RegisterClass}/>
+        <PrivateRoute exact path="/course/:id" component={Course}/>
         </div>
         </Router>
         </AuthProvider>

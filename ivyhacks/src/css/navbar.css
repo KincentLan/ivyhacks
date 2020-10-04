@@ -43,36 +43,43 @@
     font-weight: bold;
     font-size: 2vw;
     float: left;
-    margin-top: 10vh;
-    margin-left: 10vh;
+    margin-left: 5vw;
 }
 
 #new_class_button {
     border: 1vw;
     background-color: #F6F5F4;
-    height: 12vw;
-    width: 20vw;
+    height: 9vw;
+    width: 15vw;
     border-style: solid;
     border-color: black;
     border-width: 0.1vh;
     font-size: 1.8vw;
     text-align: center;
+    float: left;
+    margin-top: 5vh;
 }
 
 #class_button {
     border: 1vw;
     background-color: lightgray;
-    height: 12vw;
-    width: 20vw;
+    height: 9vw;
+    width: 15vw;
     border-style: solid;
     border-color: black;
     border-width: 0.1vh;
     font-size: 1.8vw;
     text-align: center;
+    float: left;
+    margin-top: 5vh;
 }
 
 .black {
     color: #333131
+}
+
+#classes {
+    margin-left: 10vh;
 }
 
 

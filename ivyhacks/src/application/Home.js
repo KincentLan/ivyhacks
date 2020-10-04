@@ -34,22 +34,26 @@ const Home = () => {
             <div className="navbar">
                 <button id="homeButton"><Link className="white" to="/">Home</Link></button>
                 <label id ="name"> { name } </label>
+                <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
             </div>
             { userType === 'instructor' && (
             <div>
                 <p>
                     <div id="section_label">COURSES YOU MANAGE</div>
                 </p>
-                <button id='new_class_button'>
-                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
-                </button>
             </div>)}
+            <div id='classes'>
             {courses && (
                 courses.map((value) => {
-                    return <div id="class_button"> {value} </div>;
+                    return <button id="class_button"> <Link className="black" to={"/course/" + value}>{value}</Link></button>;
                 })
+                
             )}
-            <button onClick={() => app.auth().signOut()}>Sign out</button>
+            { userType === 'instructor' && (<button id='new_class_button'>
+                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
+                </button>) }
+            </div>
+            
         </div>
     )
 }
