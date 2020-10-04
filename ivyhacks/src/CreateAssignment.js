@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import app from "./base";
-import {AuthContext} from "./auth/Auth.js";
+import {useAuthState} from 'react-firebase-hooks/auth';
 import {Redirect} from "react-router";
+import firebase from 'firebase/app';
 
-const CreateAssignment = () => {
-    // if (AuthContext.currentUser === undefined) {
-    //     return <Redirect to="/home"/>;
-    // }
-    // const currentUser = AuthContext.currentUser.uid;
-    // const userStatus = app.database().ref('/users/' + currentUser);
-    // userStatus.once("value")
-    // .then(function(snapshot) {
-    //     var key = snapshot.key;
-    //     var userJob = snapshot.child(currentUser + "/userType").key;
-    //     if (userJob !== "instructor") {
-    //         return <Redirect to="/home"/>;
-    //     }
-    // }); 
-    
+const CreateAssignment = (props) => {
+
+    const{course} = props
+
+    console.log(course)
+
     const storageRef = app.storage().ref(Number(new Date()).toString());
     
     
     const addAssignToDatabase = (async event => {
         event.preventDefault();
-        const {className, assignName, dueDate, file} = event.target.elements;
-        await app.database().ref('classes/' + className.value + "/assignments/" + assignName.value).set({
-            assignName: className.value,
+        const {assignName, dueDate, file} = event.target.elements;
+        await app.database().ref('classes/' + course + "/assignments/" + assignName.value).set({
+            assignName: course,
             dueDate: dueDate.value,
         })
     }); 
@@ -34,10 +26,6 @@ const CreateAssignment = () => {
         <div>
         <h1>Create a new assignment</h1>
         <form onSubmit={addAssignToDatabase}>
-        <label>
-        Class Name
-        <input name="className" placeholder="PHYS 2020"/>
-        </label>
         <label>
         Assignment Name
         <input name="assignName" placeholder="Homework 1"/>

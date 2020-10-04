@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={Login}/>
         <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
-        <Route exact path="/createAssignment" component={CreateAssignment}/>
+        {/* <Route exact path="/createAssignment" component={CreateAssignment}/> */}
         <Route exact path="/registerclass" component={RegisterClass}/>
         <PrivateRoute exact path="/course/:id" component={Course}/>
         </div>
