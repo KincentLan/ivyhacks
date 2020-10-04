@@ -2,6 +2,11 @@ import 'firebase/firestore';
 import {AuthContext} from "../auth/Auth.js";
 import React, {useContext} from "react";
 import {Redirect} from "react-router";
+import 'firebase/firestore';
+import 'firebase/analytics';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Chat = (props) => {
     const {course, assignment, question} = props;

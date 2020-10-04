@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
 import app from "../base";
 import firebase from 'firebase/app';
-import 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
+import 'firebase/auth';
+import CreateClass from "../CreateClass"
 
 const Home = () => {
     const auth = firebase.auth();
     const [user] = useAuthState(auth);
     const [courses, setCourses] = useState(null);
     const [loaded, setLoaded] = useState(false);
+    const [name, setName] = useState(null);
+    const [userType, setType] = useState(null);
 
     useEffect(() => {
         if (!loaded) {
@@ -19,6 +22,8 @@ const Home = () => {
                 else {
                     setCourses([]);
                 }
+                setName(snapshot.val()['firstname']);
+                setType(snapshot.val()['userType']);
                 setLoaded(true);
             });
         }
@@ -26,6 +31,8 @@ const Home = () => {
 
     return (
         <div>
+            <p>Name: {name} </p>
+            { userType === 'instructor' && "Instuctor role"}
             {courses && (
                 courses.map((value) => {
                     return <div> {value} </div>;
