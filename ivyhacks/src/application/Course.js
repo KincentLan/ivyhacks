@@ -7,6 +7,7 @@ import {Redirect, useParams} from "react-router";
 import {Link} from "react-router-dom"
 import CreateAssignment from '../CreateAssignment';
 import "../css/chatdashboard.css";
+import ChatDashboard from './ChatDashboard'
 
 const Course = () => {
     const auth = firebase.auth();
@@ -27,6 +28,7 @@ const Course = () => {
                     setLoaded(true);
                 }
                 setIsInstructor(snapshot.val()['userType'] === 'instructor');
+                console.log(snapshot.val()['userType'])
                 setName(snapshot.val()['firstname']);
             })
             app.database().ref('classes/' + id.toUpperCase()).on('value', (snapshot) => {
@@ -42,16 +44,15 @@ const Course = () => {
             setLoaded(true);
         };
     }, []);
-    console.log(assignments);
-    
+
     if (!loaded) {
         return null;
     }
-    if (redirect) {
+    else if (redirect) {
         return <Redirect to="/home"/>;
     }
 
-    if (isInstructor) {
+    else if (isInstructor) {
         return (<div className="chatDashboard">
             <div className="navbar">
                 <div className="left-title"> {id} </div>
@@ -77,30 +78,32 @@ const Course = () => {
             <CreateAssignment course={id}/>
         </div>)
     } else {
-        return (
-            <div className="chatDashboard">
-                <div className="navbar">
-                    <div className="left-title"> {id} </div>
-                    <div className="dropdown">
-                        <button className="dropbtn"> {name} </button>
-                        <div className="dropdown-content">
-                            <a href="#">
-                                <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="discussion">
-                    <h1>Current Discussion Rooms</h1>
-                    {assignments.map((value) => {
-                        return <div
-                            className="assignment"> {value.assignment} {value.question !== undefined && value.question.map((q) => {
-                            return <button className="question"><Link
-                                to={'/chat/' + id + '/' + value.assignment + '/' + q}> {q} </Link></button>;
-                        })} </div>
-                    })}
-                </div>
-            </div>);
+        return <ChatDashboard/>;
+        //<Redirect to={"/chat/" + id}/>
+        // return (
+        //     <div className="chatDashboard">
+        //         <div className="navbar">
+        //             <div className="left-title"> {id} </div>
+        //             <div className="dropdown">
+        //                 <button className="dropbtn"> {name} </button>
+        //                 <div className="dropdown-content">
+        //                     <a href="#">
+        //                         <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
+        //                     </a>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div className="discussion">
+        //             <h1>Current Discussion Rooms</h1>
+        //             {assignments.map((value) => {
+        //                 return <div
+        //                     className="assignment"> {value.assignment} {value.question !== undefined && value.question.map((q) => {
+        //                     return <button className="question"><Link
+        //                         to={'/chat/' + id + '/' + value.assignment + '/' + q}> {q} </Link></button>;
+        //                 })} </div>
+        //             })}
+        //         </div>
+        //     </div>);
     }
 };
 
