@@ -23,6 +23,15 @@
     height: 100%;
 }
 
+#createClass {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+
+    /* Light / Black */
+    color: #373F41;
+}
+
 .option {
     width: 15vw;
     height: 20vh;
@@ -37,9 +46,7 @@
     height: 100%;
     width: 100%;
     border: none;
-}
 
-.option button a {
     font-family: Mulish;
     font-style: normal;
     font-weight: 900;
@@ -48,9 +55,12 @@
     letter-spacing: 0.1px;
 
     color: #373F41;
+    cursor: pointer;
 }
 
-
+.option button:hover {
+    background-color: #DCDCDC;
+}
 
 .wrapper {
     display: grid;
