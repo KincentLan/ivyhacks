@@ -13,7 +13,7 @@ const CreateAssignment = (props) => {
         event.preventDefault();
         const {assignName, dueDate, file} = event.target.elements;
         await app.database().ref('classes/' + course + "/assignments/" + assignName.value).set({
-            assignName: course,
+            assignName: assignName,
             dueDate: dueDate.value,
         })
     }); 
