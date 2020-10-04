@@ -33,15 +33,8 @@ const Chat = () => {
                         setRedirect(true);
                     } else if (!(assignment in dbAssignments)) {
                         setRedirect(true);
-                    } else {
-                        let encounter = false;
-                        for (const key in dbAssignments) {
-                            if (dbAssignments[key]['question'] === undefined) {
-                            } else if (dbAssignments[key]['question'].includes(question)) {
-                                encounter = true;
-                            }
-                        }
-                        setRedirect(false);
+                    } else if (dbAssignments[assignment]['question'] === undefined) {
+                        setRedirect(true);
                     }
                 } else {
                     setRedirect(true);
