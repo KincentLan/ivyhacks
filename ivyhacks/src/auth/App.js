@@ -15,21 +15,22 @@ import PrivateRoute from "./PrivateRoute";
 const App = () => {
     return (
         <AuthProvider>
-            <Router>
-                <div className="bodyDiv">
-                    <PrivateRoute exact path="/home" component={Home}/>
-                    <PrivateRoute exact path="/chat/:id" component={ChatDashboard}/>
-                    <PrivateRoute exact path="/chat/:id/chatroom/:assignment/:question" component={ChatDashboard}/>
-                    <Route exact path="/" component={Welcome}/>
-                    <Route exact path="/test" component={Test}/>
-                    <Route exact path="/signup" component={SignUp}/>
-                    <Route exact path="/login" component={Login}/>
-                    <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
-                    <Route exact path="/createAssignment" component={CreateAssignment}/>
-                </div>
-            </Router>
+        <Router>
+        <div className="bodyDiv">
+        <PrivateRoute exact path="/home" component={Home}/>
+        <PrivateRoute exact path="/chat/:id" component={ChatDashboard}/>
+        <PrivateRoute exact path="/chat/:id/chatroom/:assignment/:question" component={ChatDashboard}/>
+        <Route exact path="/" component={Welcome}/>
+        <Route exact path="/test" component={Test}/>
+        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/login" component={Login}/>
+        <PrivateRoute exact path="/CreateClass" component={CreateClass}/>
+        <Route exact path="/createAssignment" component={CreateAssignment}/>
+        </div>
+        </Router>
         </AuthProvider>
-    );
-};
-
-export default App;
+        );
+    };
+    
+    export default App;
+    
