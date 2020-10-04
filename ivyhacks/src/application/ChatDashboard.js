@@ -6,6 +6,7 @@ import 'firebase/auth';
 import {Redirect, useParams} from "react-router";
 import {Link} from "react-router-dom"
 import "../css/chatdashboard.css";
+import CreateQuestion from "../CreateQuestion";
 
 
 const ChatDashboard = () => {
@@ -30,8 +31,6 @@ const ChatDashboard = () => {
             })
             app.database().ref('classes/' + id.toUpperCase()).on('value', (snapshot) => {
                 const curAssignments = [];
-                console.log(snapshot.val());
-                console.log('this ran');
                 if (snapshot.val() !== null) {
                     const dbAssignments = snapshot.val()['assignments'];
                     if (dbAssignments !== undefined) {
@@ -73,6 +72,7 @@ const ChatDashboard = () => {
             })} </div>
         })}
     </div>
+    <CreateQuestion course={id} assigns={assignments}/>
 </div>)
 }
 
