@@ -37,6 +37,7 @@ const ChatDashboard = () => {
                 }
                 setAssignments(curAssignments);
             });
+            setLoaded(true);
         };
     }, []);
 

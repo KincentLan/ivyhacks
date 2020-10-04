@@ -3,7 +3,7 @@ import app from "./base";
 import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
-const createAssignment = () => {
+const CreateAssignment = () => {
     // if (AuthContext.currentUser === undefined) {
     //     return <Redirect to="/home"/>;
     // }
@@ -57,4 +57,4 @@ const createAssignment = () => {
     };
     
     
-    export default createAssignment;
+    export default CreateAssignment;

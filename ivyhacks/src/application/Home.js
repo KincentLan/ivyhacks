@@ -11,7 +11,7 @@ const Home = () => {
     const [courses, setCourses] = useState(null);
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState(null);
-    const [userType, setType] = useState(null);
+    const [isInstructor, setIsInstructor] = useState(false);
 
     useEffect(() => {
         if (!loaded) {
@@ -23,39 +23,62 @@ const Home = () => {
                     setCourses([]);
                 }
                 setName(snapshot.val()['firstname']);
-                setType(snapshot.val()['userType']);
+                setIsInstructor(snapshot.val()['userType'] === 'instructor');
                 setLoaded(true);
             });
         }
     });
 
-    return (
+    if (!loaded) {
+        return null;
+    }
+
+    if (isInstructor) {
+        return (
         <div id="dashboard">
+        <div className="navbar">
+            <button id="homeButton"><Link className="white" to="/">Home</Link></button>
+            <label id ="name"> { name } </label>
+            <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
+        </div>
+        <div><p>
+                <div id="section_label">COURSES YOU MANAGE</div>
+            </p>
+        </div>
+        <div id='classes'>
+        {courses && (
+            courses.map((value) => {
+                return <button id="class_button"> <Link className="black" to={"/course/" + value}>{value}</Link></button>;
+            })
+            
+        )}
+        <button id='new_class_button'>
+                <Link className="black" to="/CreateClass">+ Create Another Class</Link>
+            </button>
+        </div>
+        
+    </div>)
+    } else {
+        return (
+            <div id="dashboard">
             <div className="navbar">
                 <button id="homeButton"><Link className="white" to="/">Home</Link></button>
                 <label id ="name"> { name } </label>
                 <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
             </div>
-            { userType === 'instructor' && (
-            <div>
-                <p>
-                    <div id="section_label">COURSES YOU MANAGE</div>
+            <div><p>
+                    <div id="section_label">COURSES YOU ARE IN</div>
                 </p>
-            </div>)}
+            </div>
             <div id='classes'>
             {courses && (
                 courses.map((value) => {
                     return <button id="class_button"> <Link className="black" to={"/course/" + value}>{value}</Link></button>;
                 })
-                
             )}
-            { userType === 'instructor' && (<button id='new_class_button'>
-                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
-                </button>) }
-            </div>
-            
-        </div>
-    )
+            </div>   
+        </div>)
+    }
 }
 
 export default Home;
