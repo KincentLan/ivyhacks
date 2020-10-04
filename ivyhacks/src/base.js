@@ -2,14 +2,14 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyDFxy8I3Q-N3EUEVOGWoGya1pxL0x35npg",
-  authDomain: "ivyhacks-b3547.firebaseapp.com",
-  databaseURL: "https://ivyhacks-b3547.firebaseio.com/",
-  projectId: "ivyhacks-b3547",
-  storageBucket: "ivyhacks-b3547.appspot.com",
-  messagingSenderId: "167248186439",
-  appId: "1:167248186439:web:8031f0d3fe2d1efdab3562",
-  measurementId: "G-Q0T35K7J2H"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH,
+  databaseURL: process.env.REACT_APP_DATABASE,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_KEY
 });
 
 export default app;
