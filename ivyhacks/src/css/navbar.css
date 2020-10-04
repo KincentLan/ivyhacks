@@ -4,6 +4,7 @@
     height: 1.5vh;
     padding: 1.8%;
     position: fixed;
+    z-index: 999;
 }
 
 #homeButton {
