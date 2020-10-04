@@ -6,32 +6,36 @@ import 'firebase/auth';
 
 const CreateQuestion = (props) => {
 
-    const {course} = props
-    const [loaded, setLoaded] = useState(false);
-    const [courses, setCourses] = useState([]);
-    const [questions, setQuestions] = useState([]);
+    const {course, assigns} = props
 
-    // useEffect(() => {
-    //     if (!loaded) {
-    //         app.database().ref('classes/' + course + "/assignments/" ).once('value').then((snapshot) => {
-    //             setQuestions(snapshot.val());
-    //         });
-    //         setLoaded(true);
-    //     }
-    // })
+
     
     const addQToDatabase = (async event => {
+        console.log(assigns)
         event.preventDefault();
         const {assignName, questionTitle} = event.target.elements;
-        await app.database().ref('classes/' + course + "/assignments/" + assignName.value + '/question/').once('value').then((snapshot) => {
-            setQuestions(snapshot.val());
-            setLoaded(true);
-        });
+        var temp = {}
+        assigns.forEach(hw => {
+            if (hw['assignment'] === assignName.value) {
+                console.log('yes')
+                if (hw['question'] === undefined) {
+                    hw['question'] = [questionTitle.value]
+                } else {
+                    hw['question'].push(questionTitle.value)
+                }
+                temp = hw['question']
+            }
+        })
+        console.log(assigns)
+        // await app.database().ref('classes/' + course + "/assignments/" + assignName.value + '/question/').once('value').then((snapshot) => {
+        //     setQuestions(snapshot.val());
+        //     setLoaded(true);
+        // });
 
-        console.log(questions)
+        // console.log(questions)
 
-        // await app.database().ref('classes/' + course + "/assignments/" + assignName.value).set({
-        //     question : questions,
+        // await app.database().ref('classes/' + course).set({
+        //     assignments : {assigns},
         // })
     }); 
 
