@@ -4,19 +4,19 @@ import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
 const createAssignment = () => {
-    if (AuthContext.currentUser === undefined) {
-        return <Redirect to="/home"/>;
-    }
-    const currentUser = AuthContext.currentUser.uid;
-    const userStatus = app.database().ref('/users/' + currentUser);
-    userStatus.once("value")
-    .then(function(snapshot) {
-        var key = snapshot.key;
-        var userJob = snapshot.child(currentUser + "/userType").key;
-        if (userJob !== "instructor") {
-            return <Redirect to="/home"/>;
-        }
-    }); 
+    // if (AuthContext.currentUser === undefined) {
+    //     return <Redirect to="/home"/>;
+    // }
+    // const currentUser = AuthContext.currentUser.uid;
+    // const userStatus = app.database().ref('/users/' + currentUser);
+    // userStatus.once("value")
+    // .then(function(snapshot) {
+    //     var key = snapshot.key;
+    //     var userJob = snapshot.child(currentUser + "/userType").key;
+    //     if (userJob !== "instructor") {
+    //         return <Redirect to="/home"/>;
+    //     }
+    // }); 
     
     const storageRef = app.storage().ref(Number(new Date()).toString());
     
@@ -24,8 +24,7 @@ const createAssignment = () => {
     const addAssignToDatabase = (async event => {
         event.preventDefault();
         const {className, assignName, dueDate, file} = event.target.elements;
-        storageRef.put(file);
-        await app.database().ref('classes/' + className.value + "/assignments" + assignName.value).set({
+        await app.database().ref('classes/' + className.value + "/assignments/" + assignName.value).set({
             assignName: className.value,
             dueDate: dueDate.value,
         })

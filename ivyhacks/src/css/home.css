@@ -1,0 +1,13 @@
+#section_label {
+    font-family: Montserrat, sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 2vw;
+    float: left;
+    margin-top: 10vh;
+    margin-left: 10vh;
+}
+
+#new_class_button {
+    border: 1vw;
+}

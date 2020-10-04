@@ -3,7 +3,7 @@ import app from "../base";
 import firebase from 'firebase/app';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import 'firebase/auth';
-import CreateClass from "../CreateClass"
+import {Link} from "react-router-dom"
 
 const Home = () => {
     const auth = firebase.auth();
@@ -30,12 +30,23 @@ const Home = () => {
     });
 
     return (
-        <div>
-            <p>Name: {name} </p>
-            { userType === 'instructor' && "Instuctor role"}
+        <div id="dashboard">
+            <div className="navbar">
+                <button id="homeButton"><Link className="white" to="/">Home</Link></button>
+                <label id ="name"> { name } </label>
+            </div>
+            { userType === 'instructor' && (
+            <div>
+                <p>
+                    <div id="section_label">COURSES YOU MANAGE</div>
+                </p>
+                <button id='new_class_button'>
+                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
+                </button>
+            </div>)}
             {courses && (
                 courses.map((value) => {
-                    return <div> {value} </div>;
+                    return <div id="class_button"> {value} </div>;
                 })
             )}
             <button onClick={() => app.auth().signOut()}>Sign out</button>
