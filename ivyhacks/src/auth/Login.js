@@ -1,10 +1,12 @@
-import React, {useCallback, useContext} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import {withRouter, Redirect} from "react-router";
 import app from "../base.js";
 import {AuthContext} from "./Auth.js";
 import {Link} from "react-router-dom";
 
 const Login = ({history}) => {
+    const [error, setError] = useState("");
+
     const handleLogin = useCallback(
         async event => {
             event.preventDefault();
@@ -15,7 +17,7 @@ const Login = ({history}) => {
                     .signInWithEmailAndPassword(email.value, password.value);
                 history.push("/home");
             } catch (error) {
-                alert(error);
+                setError(error.toString());
             }
         },
         [history]
@@ -34,6 +36,9 @@ const Login = ({history}) => {
             </div>
             <div class="formBox">
                 <h1>Log in</h1>
+                {error && (
+                    <div className="error">{error}</div>
+                )}
                 <div class="inputBox">
                     <form onSubmit={handleLogin}>
                         <div className="inputField">
