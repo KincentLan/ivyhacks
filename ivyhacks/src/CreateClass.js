@@ -4,6 +4,7 @@ import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
 const CreateClass = () => {
+<<<<<<< Updated upstream
   // if (AuthContext.currentUser === undefined) {
   //   return <Redirect to="/home"/>;
   // } 
@@ -17,6 +18,21 @@ const CreateClass = () => {
   //     return <Redirect to="/home"/>;
   //   }
   // }); 
+=======
+/*   if (AuthContext.currentUser === undefined) {
+    return <Redirect to="/home"/>;
+  } 
+  const currentUser = AuthContext.currentUser.uid;
+  const userStatus = app.database().ref('/users/' + currentUser);
+  userStatus.once("value")
+  .then(function(snapshot) {
+    var key = snapshot.key;
+    var userJob = snapshot.child(currentUser + "/userType").key;
+    if (userJob !== "instructor") {
+      return <Redirect to="/home"/>;
+    }
+  });  */
+>>>>>>> Stashed changes
   
   const addClassToDatabase = (async event => {
     event.preventDefault();
@@ -29,7 +45,7 @@ const CreateClass = () => {
   });
   
   return (
-    <div>
+    <div id="loginPage">
     <h1>Create a new class</h1>
     <form onSubmit={addClassToDatabase}>
     <label>
