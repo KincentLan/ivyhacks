@@ -56,7 +56,7 @@ const Course = () => {
             })} </div>
         })}
         </div>
-        <CreateAssignment/>
+        <CreateAssignment course= {id}/>
         </div>)
 
     } else {
