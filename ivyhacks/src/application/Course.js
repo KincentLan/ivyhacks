@@ -6,6 +6,7 @@ import 'firebase/auth';
 import {Redirect, useParams} from "react-router";
 import {Link} from "react-router-dom"
 import CreateAssignment from '../CreateAssignment';
+import CreateQuestion from '../CreateQuestion';
 
 const Course = () => {
     const auth = firebase.auth();
@@ -56,7 +57,8 @@ const Course = () => {
             })} </div>
         })}
         </div>
-        <CreateAssignment course= {id}/>
+        <CreateAssignment course={id}/>
+        <CreateQuestion course={id}/>
         </div>)
 
     } else {

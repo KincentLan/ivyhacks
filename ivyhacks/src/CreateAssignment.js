@@ -3,8 +3,7 @@ import app from "./base";
 
 const CreateAssignment = (props) => {
 
-    const{course} = props
-    console.log(course)
+    const {course} = props
 
     const storageRef = app.storage().ref(Number(new Date()).toString());
     
