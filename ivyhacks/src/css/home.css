@@ -1,7 +1,9 @@
 #classes {
-    width: 90%;
-    height: 100%;
+    width: 80vw;
+    height: 90vh;
     padding: 1%;
+    margin-left: 10vw;
+    margin-top: 5vh;
 }
 
 #classes h1 {
@@ -11,8 +13,47 @@
     font-size: 1.5vw;
     line-height: 4vh;
 
-    /* identical to box height, or 44% */
     text-transform: uppercase;
 
     color: #000000;
+}
+
+.grid-box {
+    margin-top: 5vh;
+    height: 100%;
+}
+
+.option {
+    width: 15vw;
+    height: 20vh;
+
+    background: rgba(196, 196, 196, 0.29);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.option button {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.option button a {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1vw;
+
+    letter-spacing: 0.1px;
+
+    color: #373F41;
+}
+
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
 }
