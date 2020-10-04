@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import app from "../base";
 import firebase from 'firebase/app';
+import {useAuthState} from 'react-firebase-hooks/auth';
 import 'firebase/auth';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import CreateClass from "../CreateClass"
