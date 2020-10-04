@@ -6,6 +6,7 @@ import 'firebase/auth';
 import '../css/home.css';
 import '../css/navbar-general.css'
 import {Link} from "react-router-dom"
+import RegisterClass from "../RegisterClass"
 
 const Home = () => {
     const auth = firebase.auth();
@@ -83,9 +84,6 @@ const Home = () => {
                         <button className="dropbtn"> {name} </button>
                         <div className="dropdown-content">
                             <a href="#">
-                                <button id="register" onClick={window.location.href='/registerclass'}>Register for courses</button>
-                            </a>
-                            <a href="#">
                                 <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
                             </a>
                         </div>
@@ -105,6 +103,13 @@ const Home = () => {
 
                         )}
                         </div>
+                        <div id="createClass" className="option">
+                                <Link className="black" to="/RegisterClass">
+                                    <button id='new_class_button'>
+                                        + Register Another Class
+                                    </button>
+                                </Link>
+                            </div>
                     </div>
                 </div>
             </div>)
