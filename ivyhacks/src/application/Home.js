@@ -37,6 +37,7 @@ const Home = () => {
         return (
             <div id="dashboard">
                 <div className="navbar">
+                    <div className="left-title">Dashboard</div>
                     <div className="dropdown">
                         <button className="dropbtn"> {name} </button>
                         <div className="dropdown-content">
@@ -53,16 +54,18 @@ const Home = () => {
                         <div className="wrapper"> {courses && (
                             courses.map((value) => {
                                 return <div className="option">
-                                    <button id="class_button"><Link className="black"
-                                                                    to={"/course/" + value}>{value}</Link></button>
+                                    <Link className="black"
+                                          to={"/course/" + value}><button id="class_button">{value}</button></Link>
                                 </div>;
                             })
 
                         )}
-                            <div className="option">
-                                <button id='new_class_button'>
-                                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
-                                </button>
+                            <div id="createClass" className="option">
+                                <Link className="black" to="/CreateClass">
+                                    <button id='new_class_button'>
+                                        + Create Another Class
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -73,6 +76,7 @@ const Home = () => {
         return (
             <div id="dashboard">
                 <div className="navbar">
+                    <div className="left-title">Dashboard</div>
                     <div className="dropdown">
                         <button className="dropbtn"> {name} </button>
                         <div className="dropdown-content">
@@ -89,8 +93,8 @@ const Home = () => {
                         <div className="wrapper"> {courses && (
                             courses.map((value) => {
                                 return <div className="option">
-                                    <button id="class_button"><Link className="black"
-                                                                    to={"/course/" + value}>{value}</Link></button>
+                                    <Link className="black"
+                                          to={"/course/" + value}><button id="class_button">{value}</button></Link>
                                 </div>;
                             })
 
