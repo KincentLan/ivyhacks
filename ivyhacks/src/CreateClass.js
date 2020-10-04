@@ -2,21 +2,24 @@ import React from "react";
 import app from "./base";
 import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
+import {useEffect, useState} from "react";
+import firebase from 'firebase/app';
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 const CreateClass = () => {
-  if (AuthContext.currentUser === undefined) {
-    return <Redirect to="/home"/>;
-  } 
-  const currentUser = AuthContext.currentUser.uid;
-  const userStatus = app.database().ref('/users/' + currentUser);
-  userStatus.once("value")
-  .then(function(snapshot) {
-    var key = snapshot.key;
-    var userJob = snapshot.child(currentUser + "/userType").key;
-    if (userJob !== "instructor") {
-      return <Redirect to="/home"/>;
-    }
-  }); 
+//   if (AuthContext.currentUser === undefined) {
+//     return <Redirect to="/home"/>;
+//   } 
+//   const currentUser = AuthContext.currentUser.uid;
+//   const userStatus = app.database().ref('/users/' + currentUser);
+//   userStatus.once("value")
+//   .then(function(snapshot) {
+//     var key = snapshot.key;
+//     var userJob = snapshot.child(currentUser + "/userType").key;
+//     if (userJob !== "instructor") {
+//       return <Redirect to="/home"/>;
+//     }
+//   }); 
   
   const addClassToDatabase = (async event => {
     event.preventDefault();
