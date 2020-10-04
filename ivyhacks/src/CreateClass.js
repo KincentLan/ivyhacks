@@ -35,7 +35,8 @@ const CreateClass = () => {
     await app.database().ref('classes/' + className.value).set({
       className: className.value,
       sectionID: sectionID.value,
-      professorName: professorName.value
+      professorName: professorName.value,
+      assignments: {general: {question: ["general"]}},
     })
   });
   

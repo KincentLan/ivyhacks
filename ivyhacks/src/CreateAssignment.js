@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import app from "./base";
-import {useAuthState} from 'react-firebase-hooks/auth';
-import {Redirect} from "react-router";
-import firebase from 'firebase/app';
 
 const CreateAssignment = (props) => {
 
     const{course} = props
-
     console.log(course)
 
     const storageRef = app.storage().ref(Number(new Date()).toString());

@@ -6,7 +6,6 @@ import SignUp from "./SignUp";
 import Test from "../Test";
 import Welcome from "../Welcome";
 import CreateClass from "../CreateClass"
-import CreateAssignment from "../CreateAssignment"
 import RegisterClass from "../RegisterClass"
 import ChatDashboard from "../application/ChatDashboard";
 import Chat from "../application/Chat";
