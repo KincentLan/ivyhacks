@@ -1,12 +1,17 @@
+#classes {
+    width: 90%;
+    height: 100%;
+    padding: 1%;
+}
+
 #classes h1 {
     font-family: Mulish;
     font-style: normal;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 1.5vw;
     line-height: 4vh;
 
     /* identical to box height, or 44% */
-    text-align: center;
     text-transform: uppercase;
 
     color: #000000;
