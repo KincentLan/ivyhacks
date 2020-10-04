@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useState} from "react";
 import {withRouter, Redirect} from "react-router";
 import app from "../base.js";
+import "../css/navbar-login.css"
 import {AuthContext} from "./Auth.js";
 import {Link} from "react-router-dom";
 
@@ -31,7 +32,7 @@ const Login = ({history}) => {
 
     return (
         <div id="loginPage">
-            <div className="navbar">
+            <div className="navbar-login">
                 <button id="homeButton"><Link className="white" to="/">Home</Link></button>
             </div>
             <div class="formBox">

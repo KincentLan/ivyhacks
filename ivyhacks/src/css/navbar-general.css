@@ -1,10 +1,11 @@
-.navbar {
+.navbar-home {
     background: #3C64B1;
     width: 100vw;
     height: 1.5vh;
     padding: 1.8%;
     z-index: 999;
     position: fixed;
+    margin-top:-10vh;
 }
 
 #homeButton {

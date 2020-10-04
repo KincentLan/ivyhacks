@@ -1,6 +1,7 @@
 import React, {useCallback, useContext, useState} from "react";
 import {withRouter} from "react-router";
 import app from "../base";
+import "../css/navbar-login.css"
 import {Link} from "react-router-dom";
 
 const SignUp = ({history}) => {
@@ -37,7 +38,7 @@ const SignUp = ({history}) => {
 
     return (
         <div id="loginPage">
-            <div className="navbar">
+            <div className="navbar-login">
                 <button id="homeButton"><Link className="white" to="/">Home</Link></button>
             </div>
             <div className="formBox">

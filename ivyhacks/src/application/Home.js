@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import 'firebase/auth';
 import '../css/home.css';
+import '../css/navbar-general.css'
 import {Link} from "react-router-dom"
 
 const Home = () => {
@@ -35,19 +36,19 @@ const Home = () => {
 
     if (isInstructor) {
         return (
-            <div id="dashboard">
-                <div className="navbar">
-                    <div className="left-title">Dashboard</div>
-                    <div className="dropdown">
-                        <button className="dropbtn"> {name} </button>
-                        <div className="dropdown-content">
-                            <a href="#">
-                                <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
-                            </a>
-                        </div>
+            <>
+            <div className="navbar-home">
+                <div className="left-title">Dashboard</div>
+                <div className="dropdown">
+                    <button className="dropbtn"> {name} </button>
+                    <div className="dropdown-content">
+                        <a href="#">
+                            <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
+                        </a>
                     </div>
                 </div>
-
+            </div>
+            <div id="dashboard">
                 <div id='classes'>
                     <h1>Courses you manage</h1>
                     <div className="grid-box">
@@ -71,11 +72,12 @@ const Home = () => {
                     </div>
                 </div>
 
-            </div>)
+            </div>
+            </>)
     } else {
         return (
             <div id="dashboard">
-                <div className="navbar">
+                <div className="navbar-home">
                     <div className="left-title">Dashboard</div>
                     <div className="dropdown">
                         <button className="dropbtn"> {name} </button>

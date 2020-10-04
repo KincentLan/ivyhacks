@@ -1,3 +1,9 @@
+#dashboard {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 #classes {
     width: 80vw;
     height: 90vh;
@@ -16,6 +22,10 @@
     text-transform: uppercase;
 
     color: #000000;
+}
+
+#dashboard {
+    margin-top: 10vh;
 }
 
 .grid-box {
