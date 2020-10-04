@@ -3,6 +3,7 @@ import React, {useRef, useEffect, useState} from "react";
 import {Redirect, useParams} from "react-router";
 import firebase from "firebase";
 import 'firebase/firestore';
+import '../css/chat.css'
 
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {useCollectionData} from 'react-firebase-hooks/firestore';
@@ -16,6 +17,7 @@ const Chat = () => {
     const [redirect, setRedirect] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [currentUser] = useAuthState(auth);
+    const [name, setName] = useState("");
 
     useEffect(() => {
         if (!loaded) {
@@ -23,6 +25,7 @@ const Chat = () => {
                 const dbUser = snapshot.val();
                 if (dbUser['classes'] === undefined || !dbUser['classes'].includes(id.toUpperCase())) {
                     setRedirect(true);
+                    setName(dbUser['firstname']);
                 }
             })
 
@@ -49,12 +52,20 @@ const Chat = () => {
     }
 
     return (
-        <div className="chat">
+        <div className="App">
+            <div className="navbar">
+                <div className="left-title"> {id} </div>
+                <div className="dropdown">
+                    <button className="dropbtn"> {name} </button>
+                    <div className="dropdown-content">
+                        <a href="#">
+                            <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
             {loaded &&
-            (<div>
-                <header>
-                    <h1>⚛🔥💬</h1>
-                </header>
+            (<div className="message-chatbox">
                 <section>
                     <ChatRoom id={id} assignment={assignment} question={question} currentUser={currentUser}/>
                 </section>
@@ -91,11 +102,12 @@ const ChatRoom = (props) => {
 
     return (<>
         <main>
-            {messages && messages.filter(data => data['course'] === id && data['assignment'] === assignment && data['question'] === question).map(msg => <ChatMessage key={msg.id} message={msg}/>)}
+            {messages && messages.filter(data => data['course'] === id && data['assignment'] === assignment
+                && data['question'] === question).map(msg => <ChatMessage key={msg.id} message={msg}/>)}
             <span ref={dummy}></span>
         </main>
 
-        <form onSubmit={sendMessage}>
+        <form class="typeInput" onSubmit={sendMessage}>
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)}
                    placeholder="ask your question here"/>
             <button type="submit" disabled={!formValue}>🕊️</button>

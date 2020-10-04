@@ -3,6 +3,7 @@
     width: 100vw;
     height: 1.5vh;
     padding: 1.8%;
+    position: fixed;
 }
 
 #homeButton {
