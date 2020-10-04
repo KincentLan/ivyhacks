@@ -49,19 +49,21 @@ const Home = () => {
 
                 <div id='classes'>
                     <h1>Courses you manage</h1>
-                    <div className="wrapper"> {courses && (
-                        courses.map((value) => {
-                            return <div className="option">
-                                <button id="class_button"><Link className="black"
-                                                                to={"/course/" + value}>{value}</Link></button>
-                            </div>;
-                        })
+                    <div className="grid-box">
+                        <div className="wrapper"> {courses && (
+                            courses.map((value) => {
+                                return <div className="option">
+                                    <button id="class_button"><Link className="black"
+                                                                    to={"/course/" + value}>{value}</Link></button>
+                                </div>;
+                            })
 
-                    )}
-                        <div className="option">
-                            <button id='new_class_button'>
-                                <Link className="black" to="/CreateClass">+ Create Another Class</Link>
-                            </button>
+                        )}
+                            <div className="option">
+                                <button id='new_class_button'>
+                                    <Link className="black" to="/CreateClass">+ Create Another Class</Link>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,18 +85,19 @@ const Home = () => {
 
                 <div id='classes'>
                     <h1>Courses you are in</h1>
-                    <div className="wrapper"> {courses && (
-                        courses.map((value) => {
-                            return <div className="option">
-                                <button id="class_button"><Link className="black"
-                                                                to={"/course/" + value}>{value}</Link></button>
-                            </div>;
-                        })
+                    <div className="grid-box">
+                        <div className="wrapper"> {courses && (
+                            courses.map((value) => {
+                                return <div className="option">
+                                    <button id="class_button"><Link className="black"
+                                                                    to={"/course/" + value}>{value}</Link></button>
+                                </div>;
+                            })
 
-                    )}
+                        )}
+                        </div>
                     </div>
                 </div>
-
             </div>)
     }
 }
