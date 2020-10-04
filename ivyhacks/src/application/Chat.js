@@ -72,12 +72,9 @@ const Chat = () => {
 
 const ChatRoom = (props) => {
     const {id, assignment, question, currentUser} = props;
-
     const dummy = useRef();
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
-
-    console.log(query);
     const [messages] = useCollectionData(query, {idField: 'id'});
     const [formValue, setFormValue] = useState('');
 
@@ -101,7 +98,7 @@ const ChatRoom = (props) => {
 
     return (<>
         <main>
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
+            {messages && messages.filter(data => data['course'] === id && data['assignment'] === assignment && data['question'] === question).map(msg => <ChatMessage key={msg.id} message={msg}/>)}
             <span ref={dummy}></span>
         </main>
 
