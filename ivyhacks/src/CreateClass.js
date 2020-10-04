@@ -29,7 +29,7 @@ const CreateClass = () => {
   });
   
   return (
-    <div>
+    <div id="loginPage">
     <h1>Create a new class</h1>
     <form onSubmit={addClassToDatabase}>
     <label>
