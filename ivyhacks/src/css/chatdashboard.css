@@ -11,8 +11,126 @@
     float:left;
 }
 
+.discussion h1 {
+    color: #000000;
+}
 .createItem {
-    float: right;
-    width: 70vw;
+    float:right;
+    width: 60vw;
     height: 100%;
+    margin-right: 10vw;
+}
+
+.wrapper-box {
+    width: 90%;
+    margin: 5%;
+}
+
+table {
+    margin-top: 3vh;
+    width: 100%;
+}
+
+table .title {
+    /* Room List Header */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.05vw;
+
+
+    color: #000000;
+}
+
+table .chat-row {
+    font-family: Mulish, sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+    color: #000000;
+    text-align: center;
+}
+
+table .chat-row button {
+    background: #FFFFFF;
+    border: 1px solid #98D4A9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 15%;
+
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: 600;
+
+    color: #118632;
+}
+
+.createItem h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+
+    /* identical to box height, or 22% */
+    letter-spacing: 0.3px;
+
+    color: #3C64B1;
+}
+
+.createItem h5 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-size: 1vw;
+    font-weight: normal;
+}
+
+.createItem .inputBox {
+    margin-top: 6vh;
+    text-align: left;
+}
+
+.createItem .inputBox label {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: 2vh;
+    margin-left: 0.5vw;
+
+    /* identical to box height, or 45% */
+    letter-spacing: 0.3px;
+}
+
+.createItem .inputBox input {
+    width: 100%;
+    padding: 1%;
+
+    background: #E5E5E5;
+}
+
+.createItem .inputBox .inputField {
+    margin-bottom: 5%;
+}
+
+.createItem button {
+    float: none;
+    display: block;
+    margin: auto;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1vw;
+    line-height: 2vh;
+    padding: 2%;
+    background: #3C64B1;
+    width: 25%;
+    border-radius: 0.30vw;
+
+    text-align: center;
+    letter-spacing: 0.3px;
+
+    color: #FFFFFF;
+}
+
+.error {
+    font-family: Montserrat;
+    color: #ff0033;
 }

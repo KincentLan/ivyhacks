@@ -42,17 +42,15 @@ const Course = () => {
                 setAssignments(curAssignments);
             });
             setLoaded(true);
-        };
+        }
+        ;
     }, []);
 
     if (!loaded) {
         return null;
-    }
-    else if (redirect) {
+    } else if (redirect) {
         return <Redirect to="/home"/>;
-    }
-
-    else if (isInstructor) {
+    } else if (isInstructor) {
         return (<div className="chatDashboard">
             <div className="navbar">
                 <div className="left-title"> {id} </div>
@@ -66,14 +64,29 @@ const Course = () => {
                 </div>
             </div>
             <div className="discussion">
-                <h1>Current Discussion Rooms</h1>
-                {assignments.map((value) => {
-                    return <div
-                        className="assignment"> {value.assignment} {value.question !== undefined && value.question.map((q) => {
-                        return <button className="question"><Link
-                            to={'/chat/' + id + '/' + value.assignment + '/' + q}> {q} </Link></button>;
-                    })} </div>
-                })}
+                <div className="wrapper-box">
+                    <h1>Current Discussion Rooms</h1>
+                    <table className="chatrooms">
+                        <tr className="title">
+                            <th>Category</th>
+                            <th>Question/Topic</th>
+                            <th></th>
+                        </tr>
+                        {assignments.map((value) => {
+                            return <> {value.question !== undefined && value.question.map((q) => {
+                                return <tr className="chat-row">
+                                    <th>{value.assignment} </th>
+                                    <th> {q} </th>
+                                    <th><Link
+                                        to={'/chat/' + id + '/' + value.assignment + '/' + q}>
+                                        <button className="question"> Join</button>
+                                    </Link></th>
+                                </tr>;
+                            })} </>
+
+                        })}
+                    </table>
+                </div>
             </div>
             <CreateAssignment course={id}/>
         </div>)
