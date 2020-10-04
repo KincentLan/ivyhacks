@@ -3,7 +3,7 @@ import app from "./base";
 import {AuthContext} from "./auth/Auth.js";
 import {Redirect} from "react-router";
 
-const createClass = () => {
+const CreateClass = () => {
   if (AuthContext.currentUser === undefined) {
     return <Redirect to="/home"/>;
   }
@@ -51,4 +51,4 @@ const createClass = () => {
 };
 
 
-export default createClass;
+export default CreateClass;
