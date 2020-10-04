@@ -1,13 +1,13 @@
-#section_label {
-    font-family: Montserrat, sans-serif;
-    color: black;
+#classes h1 {
+    font-family: Mulish;
+    font-style: normal;
     font-weight: bold;
-    font-size: 2vw;
-    float: left;
-    margin-top: 10vh;
-    margin-left: 10vh;
-}
+    font-size: 5vw;
+    line-height: 4vh;
 
-#new_class_button {
-    border: 1vw;
+    /* identical to box height, or 44% */
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
 }
