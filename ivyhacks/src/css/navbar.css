@@ -20,4 +20,50 @@
     letter-spacing: 0.3px;
 }
 
+.dropdown {
+    font-family: Montserrat, sans-serif;
+    float: right;
+    overflow: hidden;
+}
 
+.dropdown .dropbtn {
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+
+    border: none;
+    margin-right: 8vw;
+    line-height: 2vh;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2vw;
+    padding: 3%;
+
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

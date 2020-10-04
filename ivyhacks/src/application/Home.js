@@ -37,12 +37,17 @@ const Home = () => {
         return (
         <div id="dashboard">
         <div className="navbar">
-            <button id="homeButton"><Link className="white" to="/">Home</Link></button>
-            <label id ="name"> { name } </label>
-            <button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button>
+
+            <div className="dropdown">
+                <button className="dropbtn"> {name} </button>
+                <div className="dropdown-content">
+                    <a href="#"><button id="homeButton" onClick={() => app.auth().signOut()}>Sign out</button></a>
+                </div>
+            </div>
         </div>
+
         <div><p>
-                <div id="section_label">COURSES YOU MANAGE</div>
+                <div id="section_label">Courses you manage</div>
             </p>
         </div>
         <div id='classes'>
