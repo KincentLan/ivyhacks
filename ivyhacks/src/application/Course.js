@@ -52,7 +52,7 @@ const Course = () => {
         return (<div>
             <div>{assignments.map((value) => {
             return <div className="assignment"> {value.assignment} { value.question !== undefined && value.question.map((q) => {
-                return <div className="question"> {q} </div>;
+                return <button className="question" ><Link to={'/chat/' + id + '/' + value.assignment + '/' + q}> {q} </Link></button>;
             })} </div>
         })}
         </div>
@@ -64,7 +64,7 @@ const Course = () => {
         return (
             <div>{assignments.map((value) => {
                 return <div className="assignment"> {value.assignment} { value.question !== undefined && value.question.map((q) => {
-                    return <div className="question"> {q} </div>;
+                    return <button className="question" ><Link to={'/chat/' + id + '/' + value.assignment + '/' + q}> {q} </Link></button>;
                 })} </div>
             })}
             </div>);
