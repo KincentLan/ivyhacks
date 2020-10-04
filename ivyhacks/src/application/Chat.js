@@ -25,6 +25,8 @@ const Chat = () => {
                 const dbUser = snapshot.val();
                 if (dbUser['classes'] === undefined || !dbUser['classes'].includes(id.toUpperCase())) {
                     setRedirect(true);
+                }
+                else {
                     setName(dbUser['firstname']);
                 }
             })
